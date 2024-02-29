@@ -1,0 +1,20 @@
+.contentInput {
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 60px;
+
+  .input {
+    width: 100%;
+    font-size: 24px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+  }
+
+  .error {
+    font-size: 14px;
+    color: red;
+  }
+}
