@@ -2,6 +2,7 @@ export interface TimeRegister {
   nombre: string;
   email: string;
   tiempo: Tiempo;
+  _id: string;
 }
 
 export interface Tiempo {

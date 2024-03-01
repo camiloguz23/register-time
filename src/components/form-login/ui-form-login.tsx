@@ -1,9 +1,9 @@
 'use client';
 
-import { LoginModel } from '@/types/login-model';
 import { useForm } from 'react-hook-form';
 import { UiInput } from '../input/ui-input';
 import { onLogin } from '@/actions';
+import { LoginModel } from '@/shared';
 
 export const UiFormLogin = () => {
   const {

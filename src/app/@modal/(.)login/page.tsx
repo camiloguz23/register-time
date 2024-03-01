@@ -1,4 +1,4 @@
-import { UiFormLogin, UiInput, UiModal } from '@/components';
+import { UiFormLogin, UiModal } from '@/components';
 
 function Page() {
   return (
