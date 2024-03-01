@@ -9,7 +9,7 @@
   position: absolute;
   top: 0;
   z-index: 3;
-  clip-path: circle(100% at bottom center);
+  clip-path: circle(200% at bottom center);
   animation: openCircle linear 1.5s;
 
   &.open{
@@ -50,13 +50,13 @@
     clip-path: circle(0% at bottom center);
   }
   to {
-    clip-path: circle(100% at bottom center);
+    clip-path: circle(200% at bottom center);
   }
 }
 
 @keyframes closeCircle {
   from {
-    clip-path: circle(100% at bottom center);
+    clip-path: circle(200% at bottom center);
   }
   to {
     clip-path: circle(0% at bottom center);
