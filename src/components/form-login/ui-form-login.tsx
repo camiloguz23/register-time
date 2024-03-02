@@ -13,25 +13,26 @@ export const UiFormLogin = () => {
   } = useForm<LoginModel>({
     mode: 'onBlur',
     defaultValues: {
-      email: ''
+      nombre: ''
     }
   });
   const onSubmit = handleSubmit(async (data) => {
+    console.log('🚀 ~ onSubmit ~ data:', data);
     await onLogin(data);
   });
   return (
     <form onSubmit={onSubmit}>
       <UiInput
-        type='email'
+        type='text'
         register={{
-          ...register('email', {
+          ...register('nombre', {
             required: {
               value: true,
               message: 'El correo es obligatorio'
             }
           })
         }}
-        messages={errors?.email?.message}
+        messages={errors?.nombre?.message}
       />
       <button type='submit' disabled={!isValid}>
         Enviar

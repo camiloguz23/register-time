@@ -1,3 +1,3 @@
 export interface LoginModel {
-  email: string;
+  nombre: string;
 }
