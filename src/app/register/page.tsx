@@ -19,7 +19,7 @@ export default async function PageRegiste() {
       <div className={style.container}>
         <InfoPredications month={MONTH[month]} time={formatHoursMinutes(user?.tiempo.meses[MONTH[month]] ?? 0)} />
       </div>
-      <BtnRegister id={user?._id ?? ''} minutesDB={user?.tiempo.meses[MONTH[month]] ?? 0} user={user}/>
+      <BtnRegister id={user?._id ?? ''} minutesDB={user?.tiempo.meses[MONTH[month]] ?? 0} />
     </main>
   );
 }

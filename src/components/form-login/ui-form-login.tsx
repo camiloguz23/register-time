@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { UiInput } from '../input/ui-input';
 import { onLogin } from '@/actions';
 import { LoginModel } from '@/shared';
+import { Toaster, toast } from 'sonner';
 
 export const UiFormLogin = () => {
   const {
@@ -13,26 +14,31 @@ export const UiFormLogin = () => {
   } = useForm<LoginModel>({
     mode: 'onBlur',
     defaultValues: {
-      nombre: ''
+      email: ''
     }
   });
+
   const onSubmit = handleSubmit(async (data) => {
-    console.log('🚀 ~ onSubmit ~ data:', data);
     await onLogin(data);
+    toast.error('My error toast', {
+      style: {
+        backgroundColor: 'hsla(0,50%,50%,0.4)'
+      }
+    });
   });
   return (
     <form onSubmit={onSubmit}>
       <UiInput
-        type='text'
+        type='email'
         register={{
-          ...register('nombre', {
+          ...register('email', {
             required: {
               value: true,
               message: 'El correo es obligatorio'
             }
           })
         }}
-        messages={errors?.nombre?.message}
+        messages={errors?.email?.message}
       />
       <button type='submit' disabled={!isValid}>
         Enviar

@@ -9,8 +9,8 @@ export const updateMonthAction = async (_id: string, month: Record<string, numbe
     await mongodbConnect();
     const update = await timeModel.updateOne({ _id }, { $set: month });
     update.modifiedCount && revalidateTag(TagsEnum.register);
-    return update.modifiedCount;
+    return !!update.modifiedCount;
   } catch (error) {
-    return error;
+    return false;
   }
 };

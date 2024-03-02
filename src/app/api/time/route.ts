@@ -5,11 +5,10 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const email = searchParams.get('email');
-  console.log('api', email);
   try {
     await mongodbConnect();
 
-    const timeDate: TimeRegister | null = await timeModel.findOne({ nombre: email });
+    const timeDate: TimeRegister | null = await timeModel.findOne({ email });
 
     return NextResponse.json(timeDate, {
       status: 200
