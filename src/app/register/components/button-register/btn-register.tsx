@@ -26,7 +26,9 @@ export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
       const month = new Date().getMonth();
       storage.setStorage('time', '');
       const setMonth = editMonth(result + minutesDB)[month as CodeMonthType];
-      await updateMonthAction(id, setMonth);
+      const isvalid = await updateMonthAction(id, setMonth);
+      console.log("🚀 ~ onRegisterTime ~ isvalid:", isvalid)
+      
       return;
     }
     storage.setStorage('time', `${new Date()}`);
