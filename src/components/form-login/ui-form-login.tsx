@@ -20,7 +20,8 @@ export const UiFormLogin = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     const isSession = await onLogin(data);
-    isSession || toast.error('My error toast', { style: { backgroundColor: 'hsla(0,50%,50%,0.4)' } });
+
+    isSession === false && toast.error('My error toast', { style: { backgroundColor: 'hsla(0,50%,50%,0.4)' } });
   });
   return (
     <form onSubmit={onSubmit}>

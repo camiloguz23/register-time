@@ -10,5 +10,6 @@ export const onLogin = async (data: LoginModel) => {
   const response: TimeRegister | null = await timeModel.findOne(data);
   !!response?.email && cookies().set('email', response?.email ?? '');
   !!response?.email && redirect('/register');
-  return !!response?.email;
+  return false;
 };
+  
