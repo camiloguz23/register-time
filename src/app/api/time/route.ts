@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   try {
     await mongodbConnect();
 
-    const timeDate: TimeRegister | null = await timeModel.findOne({ email });
+    const timeDate: TimeRegister | null = await timeModel.findOne({ nombre: email });
 
     return NextResponse.json(timeDate, {
       status: 200
