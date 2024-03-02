@@ -2,7 +2,7 @@
 
 import { updateMonthAction } from '@/actions';
 import { useLocalStorage } from '@/hook';
-import { CodeMonthType, editMonth } from '@/shared';
+import { CodeMonthType, TimeRegister, editMonth } from '@/shared';
 import { differenceInMinutes } from 'date-fns';
 import { useEffect } from 'react';
 import style from './btn-register.module.css';
@@ -11,9 +11,11 @@ import { Icons } from '@/components';
 interface PropsBtnRegister {
   id: string;
   minutesDB: number;
+  user: TimeRegister | undefined;
 }
 
-export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
+export const BtnRegister = ({ id, minutesDB, user }: PropsBtnRegister) => {
+  console.log("🚀 ~ BtnRegister ~ user:", user)
   const storage = useLocalStorage();
 
   useEffect(() => {
@@ -27,8 +29,8 @@ export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
       storage.setStorage('time', '');
       const setMonth = editMonth(result + minutesDB)[month as CodeMonthType];
       const isvalid = await updateMonthAction(id, setMonth);
-      console.log("🚀 ~ onRegisterTime ~ isvalid:", isvalid)
-      
+      console.log('🚀 ~ onRegisterTime ~ isvalid:', isvalid);
+
       return;
     }
     storage.setStorage('time', `${new Date()}`);
