@@ -1,6 +1,52 @@
 .main {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid: "title" 100px
+        "img" auto
+        "btn" 200px
+        /1fr;
   align-items: center;
-  flex-direction: column;
+  height: 100%;
+
+  .title {
+    grid-area: title;
+    justify-self: center;
+    text-align: center;
+    text-wrap: pretty;
+  }
+
+  .container {
+    grid-area: img;
+    width: clamp(350px,40%, 500px);
+    justify-self: center;
+
+    .image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      filter: drop-shadow(0 0 10px hsla(200, 50%, 50%, 1));
+    }
+
+    
+  }
+
+  .container-btm-link {
+    grid-area: btn;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .btn-link {
+      padding: 6px 30px;
+      background-color: hsla(200, 50%, 50%, 1);
+      color: white;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  
 }

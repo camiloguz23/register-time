@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { UiInput } from '../input/ui-input';
 import { onLogin } from '@/actions';
 import { LoginModel } from '@/shared';
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 
 export const UiFormLogin = () => {
   const {
