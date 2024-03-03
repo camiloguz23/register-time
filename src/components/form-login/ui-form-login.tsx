@@ -26,6 +26,7 @@ export const UiFormLogin = () => {
   });
   return (
     <form onSubmit={onSubmit} className={style.form}>
+      <h4  className={style.title}>Iniciar Sesion</h4>
       <UiInput
         type='email'
         register={{
