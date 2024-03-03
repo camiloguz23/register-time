@@ -6,7 +6,7 @@ import { CodeMonthType, editMonth } from '@/shared';
 import { differenceInMinutes } from 'date-fns';
 import { useEffect } from 'react';
 import style from './btn-register.module.css';
-import { Icons } from '@/components';
+import { Icons, UiNotifications } from '@/components';
 import { toast } from 'sonner';
 
 interface PropsBtnRegister {
@@ -30,12 +30,16 @@ export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
     const result = differenceInMinutes(new Date(), new Date(storage.value));
     const month = new Date().getMonth();
     const setMonth = editMonth(result + minutesDB)[month as CodeMonthType];
-    console.log("🚀 ~ onRegisterTime ~ id, setMonth:", id, setMonth)
     const isSaved = await updateMonthAction(id, setMonth);
     storage.setStorage('time', '');
     isSaved
-      ? toast.success('Se registro el Tiempo', { style: { backgroundColor: 'hsla(120,50%,50%,0.4)' } })
-      : toast.error(result ?'No se registro el tiempo': 'tiempo es inferior al minuto no se registra', { style: { backgroundColor: 'hsla(0,50%,50%,0.4)' } });
+      ? toast.success(<UiNotifications message='Se registro el Tiempo' type='success' />, {
+          style: { backgroundColor: 'hsla(120,50%,50%,1)' }
+        })
+      : toast.error(
+          <UiNotifications message={result >= 1 ? 'No se registro el tiempo' : 'tiempo es inferior al minuto no se registra'} type='error' />,
+          { style: { backgroundColor: 'hsla(0,50%,50%,1)' } }
+        );
   };
   return (
     <button onClick={onRegisterTime} className={style.button}>

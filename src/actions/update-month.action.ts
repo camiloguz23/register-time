@@ -8,13 +8,10 @@ export const updateMonthAction = async (_id: string, month: Record<string, numbe
   try {
     await mongodbConnect();
     const update = await timeModel.updateOne({ _id }, { $set: month });
-    console.log("🚀 ~ updateMonthAction ~ { _id }, { $set: month }:", { _id }, { $set: month })
     update.modifiedCount && revalidateTag(TagsEnum.register);
-    console.log("🚀 ~ updateMonthAction ~ update.modifiedCoun:", update.modifiedCount)
     return !!update.modifiedCount;
   } catch (error) {
-    console.log("🚀 ~ updateMonthAction ~ error:", error)
+    console.log('🚀 ~ updateMonthAction ~ error:', error);
     return false;
   }
-    
 };

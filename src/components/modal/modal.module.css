@@ -1,7 +1,7 @@
 .modal {
   height: 100dvb;
   background-color: hsla(0, 0%, 100%, 0.1);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,6 +23,7 @@
 
   .contentModal {
     min-height: 500px;
+    height: 500px;
     min-width: 300px;
     box-shadow: 1px 1px 12px 3px hsla(0, 0%, 0%, 0.4);
     border-radius: 12px;

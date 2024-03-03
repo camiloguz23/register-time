@@ -5,6 +5,7 @@ import { UiInput } from '../input/ui-input';
 import { onLogin } from '@/actions';
 import { LoginModel } from '@/shared';
 import { toast } from 'sonner';
+import style from './ui-form.module.css';
 
 export const UiFormLogin = () => {
   const {
@@ -24,7 +25,7 @@ export const UiFormLogin = () => {
     isSession === false && toast.error('My error toast', { style: { backgroundColor: 'hsla(0,50%,50%,0.4)' } });
   });
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={style.form}>
       <UiInput
         type='email'
         register={{
@@ -37,7 +38,7 @@ export const UiFormLogin = () => {
         }}
         messages={errors?.email?.message}
       />
-      <button type='submit' disabled={!isValid}>
+      <button type='submit' disabled={!isValid} className={style['btn-login']}>
         Enviar
       </button>
     </form>
