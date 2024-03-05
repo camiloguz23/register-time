@@ -12,4 +12,8 @@ export const onLogin = async (data: LoginModel) => {
   !!response?.email && redirect('/register');
   return false;
 };
-  
+
+export const onLogOut = async () => {
+  await cookies().set('email', '');
+  redirect('/');
+};

@@ -5,3 +5,4 @@ export * from './form-login/ui-form-login';
 export * from './notifications/notifications';
 export * from './spinner/spinner';
 export * from './header/header';
+export * from './btn-logout/btn-logout';

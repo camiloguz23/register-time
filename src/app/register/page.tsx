@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 import { BtnRegister, InfoPredications } from './components';
 import { CodeMonthType, MONTH, formatHoursMinutes } from '@/shared';
 import style from './register-page.module.css';
+import { BtnLogout, Header } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Register Time'
@@ -16,6 +17,9 @@ export default async function PageRegiste() {
   const month: CodeMonthType = new Date().getMonth() as CodeMonthType;
   return (
     <main className={style.registerContainer}>
+      <Header>
+        <BtnLogout />
+      </Header>
       <div className={style.container}>
         <InfoPredications month={MONTH[month]} time={formatHoursMinutes(user?.tiempo.meses[MONTH[month]] ?? 0)} />
       </div>
