@@ -16,6 +16,6 @@ export const editMonth = (minutes: number): Record<CodeMonthType, Record<string,
 });
 
 export const editYear = (year: number, count: number) => {
-  const field = { [`tiempo.years.${year}`]: count };
+  const field = { [`tiempo.years.${9999}`]: count };
   return field;
 };

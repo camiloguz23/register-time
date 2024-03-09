@@ -6,7 +6,7 @@ export interface TimeRegister {
 }
 
 export interface Tiempo {
-  year: Record<string, number>;
+  years: Record<string, number>;
   meses: Meses;
 }
 

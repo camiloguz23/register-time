@@ -9,6 +9,7 @@ export const updateMonthAction = async (_id: string, month: Record<string, numbe
     await mongodbConnect();
     const isUpdate = await setMonth(_id, month);
     const isUpdateYear = await setYear(_id, year);
+    console.log("🚀 ~ updateMonthAction ~ isUpdateYear:", isUpdateYear)
     return isUpdate;
   } catch (error) {
     console.log('🚀 ~ updateMonthAction ~ error:', error);
@@ -24,4 +25,5 @@ const setMonth = async (_id: string, month: Record<string, number>) => {
 
 const setYear = async (_id: string, year: Record<string, number>) => {
   const updateYear = await timeModel.findOneAndUpdate({ _id }, { $set: year });
+  return updateYear
 };
