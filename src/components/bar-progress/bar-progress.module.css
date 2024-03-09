@@ -1,0 +1,11 @@
+.progress-verde {
+  accent-color: hsla(150, 50%, 50%, 0.8);
+}
+
+.progress-azul {
+  accent-color: hsla(180, 50%, 50%, 0.8);
+}
+
+.progress-naranja {
+  accent-color: hsla(40, 50%, 50%, 0.8);
+}

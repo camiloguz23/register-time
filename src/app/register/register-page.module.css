@@ -8,5 +8,12 @@
 
   .container {
     width: max(30%, 350px);
+
+    .section-precursorado {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
   }
 }

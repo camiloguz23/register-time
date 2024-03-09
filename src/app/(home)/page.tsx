@@ -9,10 +9,12 @@ export default function Home() {
       <div className={styles.container}>
         <Image src={'/img/home.png'} className={styles.image} alt='image about register time' width={200} height={200} />
       </div>
-     
-     <div className={styles['container-btm-link']}>
-       <Link href={'/login'} className={styles['btn-link']}>Login</Link>
-     </div>
+
+      <div className={styles['container-btm-link']}>
+        <Link href={'/login'} className={styles['btn-link']}>
+          Login
+        </Link>
+      </div>
     </main>
   );
 }
