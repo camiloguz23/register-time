@@ -2,7 +2,7 @@
 
 import { updateMonthAction } from '@/actions';
 import { useBoolean, useLocalStorage } from '@/hook';
-import { CodeMonthType, editMonth } from '@/shared';
+import { CodeMonthType, editMonth, editYear } from '@/shared';
 import { differenceInMinutes } from 'date-fns';
 import { useEffect } from 'react';
 import style from './btn-register.module.css';
@@ -16,9 +16,10 @@ interface PropsBtnRegister {
   year: number;
 }
 
-export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
+export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister) => {
   const storage = useLocalStorage();
   const spinner = useBoolean();
+  const month = new Date().getMonth();
 
   useEffect(() => {
     storage.getStorage('time');
@@ -31,9 +32,8 @@ export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
     }
     spinner.onTrue();
     const result = differenceInMinutes(new Date(), new Date(storage.value));
-    const month = new Date().getMonth();
     const setMonth = editMonth(result + minutesDB)[month as CodeMonthType];
-    const isSaved = await updateMonthAction(id, setMonth);
+    const isSaved = await updateMonthAction(id, setMonth, editYear(result + yearTime, year));
     spinner.onFalse();
     storage.setStorage('time', '');
     isSaved

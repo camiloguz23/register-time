@@ -1,4 +1,4 @@
-import { CodeMonthType } from "../types";
+import { CodeMonthType } from '../types';
 
 export const editMonth = (minutes: number): Record<CodeMonthType, Record<string, number>> => ({
   '0': { 'tiempo.meses.enero': minutes },
@@ -15,6 +15,7 @@ export const editMonth = (minutes: number): Record<CodeMonthType, Record<string,
   '11': { 'tiempo.meses.diciembre': minutes }
 });
 
-export const editYear = (year:number,count:number) => {
-  const field =  `tiempo.years.${year}`
-}
+export const editYear = (year: number, count: number) => {
+  const field = { [`tiempo.years.${year}`]: count };
+  return field;
+};
