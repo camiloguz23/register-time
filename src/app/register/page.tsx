@@ -15,6 +15,7 @@ export default async function PageRegiste() {
   const email = cookie.get('email');
   const user = await getUser(email?.value ?? '');
   const month: CodeMonthType = new Date().getMonth() as CodeMonthType;
+  const year = new Date().getFullYear();
   return (
     <main className={style.registerContainer}>
       <Header>
@@ -44,7 +45,12 @@ export default async function PageRegiste() {
           />
         </section>
       </div>
-      <BtnRegister id={user?._id ?? ''} minutesDB={user?.tiempo.meses[MONTH[month]] ?? 0} />
+      <BtnRegister
+        id={user?._id ?? ''}
+        minutesDB={user?.tiempo.meses[MONTH[month]] ?? 0}
+        yearTime={user?.tiempo?.year[`${year}`] ?? 0}
+        year={year}
+      />
     </main>
   );
 }

@@ -6,18 +6,8 @@ export interface TimeRegister {
 }
 
 export interface Tiempo {
-  semanas: Semana[];
+  year: Record<string, number>;
   meses: Meses;
-}
-
-export interface Semana {
-  lunes: number;
-  martes: number;
-  miercoles: number;
-  jueves: number;
-  viernes: number;
-  sabado: number;
-  domingo: number;
 }
 
 export interface Meses {

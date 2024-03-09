@@ -12,6 +12,8 @@ import { toast } from 'sonner';
 interface PropsBtnRegister {
   id: string;
   minutesDB: number;
+  yearTime: number;
+  year: number;
 }
 
 export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
@@ -23,7 +25,6 @@ export const BtnRegister = ({ id, minutesDB }: PropsBtnRegister) => {
   }, []);
 
   const onRegisterTime = async () => {
-    
     if (!storage.value) {
       storage.setStorage('time', `${new Date()}`);
       return;

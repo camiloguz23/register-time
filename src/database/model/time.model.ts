@@ -4,17 +4,7 @@ const schemaTime = new mongoose.Schema({
   nombre: String,
   email: String,
   tiempo: {
-    semanas: [
-      {
-        lunes: Number,
-        martes: Number,
-        miercoles: Number,
-        jueves: Number,
-        viernes: Number,
-        sabado: Number,
-        domingo: Number
-      }
-    ],
+    years: {},
     meses: {
       enero: Number,
       febrero: Number,

@@ -15,3 +15,13 @@ export const updateMonthAction = async (_id: string, month: Record<string, numbe
     return false;
   }
 };
+
+const setMonth = async (_id: string, month: Record<string, number>) => {
+  const update = await timeModel.updateOne({ _id }, { $set: month });
+  update.modifiedCount && revalidateTag(TagsEnum.register);
+  return !!update.modifiedCount;
+};
+
+const setYear = async (_id: string,) => {
+  const updateYear = await timeModel.findOneAndUpdate({ _id }, { $set: { 'tiempo.years.2025': 30 } });
+}
