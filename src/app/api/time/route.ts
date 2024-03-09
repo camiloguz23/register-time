@@ -22,3 +22,26 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
+export async function POST(request: NextRequest) {
+  await mongodbConnect();
+  const data = await request.json();
+
+  const timeDate = await timeModel.create(data);
+
+  return NextResponse.json(timeDate);
+}
+
+export async function PUT(request: NextRequest) {
+  try {
+    await mongodbConnect();
+    const data = request.json();
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'error serve' },
+      {
+        status: 500
+      }
+    );
+  }
+}

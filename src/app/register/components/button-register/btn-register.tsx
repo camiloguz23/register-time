@@ -33,7 +33,7 @@ export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister)
     spinner.onTrue();
     const result = differenceInMinutes(new Date(), new Date(storage.value));
     const setMonth = editMonth(result + minutesDB)[month as CodeMonthType];
-    const isSaved = await updateMonthAction(id, setMonth, editYear(result + yearTime, year));
+    const isSaved = await updateMonthAction(id, setMonth, editYear(year,result + yearTime,));
     spinner.onFalse();
     storage.setStorage('time', '');
     isSaved

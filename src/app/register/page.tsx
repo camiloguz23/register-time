@@ -48,7 +48,7 @@ export default async function PageRegiste() {
       <BtnRegister
         id={user?._id ?? ''}
         minutesDB={user?.tiempo.meses[MONTH[month]] ?? 0}
-        yearTime={user?.tiempo?.year[`${year}`] ?? 0}
+        yearTime={user?.tiempo?.year?.[`${year}`] ?? 0}
         year={year}
       />
     </main>
