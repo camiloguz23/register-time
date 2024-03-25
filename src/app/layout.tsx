@@ -13,7 +13,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Register Time',
   description: 'Pagina donde se puede registrar el tiempo mensualmente',
-  
+  manifest: '/manifest.json',
+  icons: {
+    apple: '/.icon.png'
+  },
+  themeColor: '#3569f6'
 };
 
 export default function RootLayout({
