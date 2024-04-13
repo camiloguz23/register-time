@@ -6,8 +6,7 @@ import { CodeMonthType, editMonth, editYear } from '@/shared';
 import { differenceInMinutes } from 'date-fns';
 import { useEffect } from 'react';
 import style from './btn-register.module.css';
-import { Icons, Spinner, UiNotifications } from '@/components';
-import { toast } from 'sonner';
+import { Icons, notificationsPopUp, Spinner} from '@/components';
 
 interface PropsBtnRegister {
   id: string;
@@ -34,20 +33,14 @@ export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister)
     const result = differenceInMinutes(new Date(), new Date(storage.value));
     const setMonth = editMonth(result + minutesDB)[month as CodeMonthType];
     const isSaved = await updateMonthAction(id, setMonth, editYear(year, result + yearTime));
-    console.log('🚀 ~ onRegisterTime ~ result + yearTime:', result + yearTime);
     spinner.onFalse();
     storage.setStorage('time', '');
     isSaved
-      ? toast.success(<UiNotifications message='Se registro el Tiempo' type='success' />, {
-          style: { backgroundColor: 'hsla(120,50%,50%,1)' }
-        })
-      : toast.error(
-          <UiNotifications
-            message={result >= 1 ? 'No se registro el tiempo' : 'tiempo es inferior al minuto no se registra'}
-            type='error'
-          />,
-          { style: { backgroundColor: 'hsla(0,50%,50%,1)' } }
-        );
+      ? notificationsPopUp({ message: 'Se registro el Tiempo', isSuccess: true })
+      : notificationsPopUp({
+          message: result >= 1 ? 'No se registro el tiempo' : 'tiempo es inferior al minuto no se registra',
+          isSuccess: false
+        });
   };
   return (
     <>

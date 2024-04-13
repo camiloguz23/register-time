@@ -15,10 +15,10 @@
   }
 
   &.startRegister {
-    background-color: hsla(120,50%,50%,1);
+    background-color: hsla(120, 50%, 50%, 1);
   }
 
   &.endRegister {
-    background-color: hsla(0,50%,50%,0.6);
+    background-color: hsla(0, 50%, 50%, 0.6);
   }
 }
