@@ -8,8 +8,17 @@
   gap: 10px;
   margin-top: auto;
   margin-bottom: 20px;
+  transition: 1s;
 
   .icon {
     color: red;
+  }
+
+  &.startRegister {
+    background-color: hsla(120,50%,50%,1);
+  }
+
+  &.endRegister {
+    background-color: hsla(0,50%,50%,0.6);
   }
 }

@@ -33,8 +33,8 @@ export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister)
     spinner.onTrue();
     const result = differenceInMinutes(new Date(), new Date(storage.value));
     const setMonth = editMonth(result + minutesDB)[month as CodeMonthType];
-    const isSaved = await updateMonthAction(id, setMonth, editYear(year,result + yearTime,));
-    console.log("🚀 ~ onRegisterTime ~ result + yearTime:", result + yearTime)
+    const isSaved = await updateMonthAction(id, setMonth, editYear(year, result + yearTime));
+    console.log('🚀 ~ onRegisterTime ~ result + yearTime:', result + yearTime);
     spinner.onFalse();
     storage.setStorage('time', '');
     isSaved
@@ -51,7 +51,7 @@ export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister)
   };
   return (
     <>
-      <button onClick={onRegisterTime} className={style.button}>
+      <button onClick={onRegisterTime} className={`${style.button} ${style[storage.value ? 'endRegister' : 'startRegister']}`}>
         <Icons.time type={storage.value ? 'close' : 'add'} />
         {storage.value ? 'detener tiempo' : 'iniciar tiempo'}
       </button>
