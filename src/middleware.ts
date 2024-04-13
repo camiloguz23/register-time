@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  if (request.nextUrl.pathname.endsWith('/') || (request.nextUrl.pathname.startsWith('/login') && isValid?.value)) {
+  if (request.nextUrl.pathname.endsWith('/') && isValid?.value) {
     return NextResponse.redirect(new URL('/register', request.url));
   }
 }
