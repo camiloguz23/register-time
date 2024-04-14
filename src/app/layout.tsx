@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'Register Time',
-    description: 'Pagina para hacer registro del tiempo queel usuario usa o necesita',
+    description: 'Pagina para hacer registro del tiempo',
     images: [
       {
         url: 'https://www.pngfind.com/pngs/m/215-2156263_reloj-png-vector-transparent-png.png', // Asegúrate de reemplazar esto con la URL real de tu imagen
