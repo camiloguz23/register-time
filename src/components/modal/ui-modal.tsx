@@ -21,7 +21,7 @@ export const UiModal = ({ children }: PropModal) => {
             onClick={() => {
               setClassAnimation('close');
               setTimeout(() => {
-                route.back();
+                route.push('/');
               }, 1500);
             }}
           >

@@ -56,16 +56,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
 }>) {
   return (
     <html lang='es' className={montserrat.className}>
       <body>
         {children}
-        {modal}
         <Toaster position='top-right' />
       </body>
     </html>
