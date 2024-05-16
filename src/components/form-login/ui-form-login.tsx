@@ -8,11 +8,9 @@ import { toast } from 'sonner';
 import style from './ui-form.module.css';
 import { useBoolean } from '@/hook';
 import { Spinner } from '../spinner/spinner';
-import { useRouter } from 'next/navigation';
 
-export const UiFormLogin = () => {
+export const UiFormLogin = (): JSX.Element => {
   const spinner = useBoolean();
-  const route =useRouter()
   const {
     register,
     formState: { errors, isValid },
@@ -24,11 +22,11 @@ export const UiFormLogin = () => {
     }
   });
 
-  const onSubmit = handleSubmit(async(data) => {
+  const onSubmit = handleSubmit(async (data) => {
     spinner.onTrue();
-    const isValidate = await onLogin(data)
-    isValidate ? route.push('/register') : toast.error('My error toast', { style: { backgroundColor: 'hsla(0,50%,50%,0.4)' } });
-    spinner.onFalse()
+    const isValidate = await onLogin(data);
+    isValidate === false && toast.error('My error toast', { style: { backgroundColor: 'hsla(0,50%,50%,0.4)' } });
+    spinner.onFalse();
   });
   return (
     <>

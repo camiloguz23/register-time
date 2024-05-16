@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Register Time'
 };
 
-export default async function PageRegiste() {
+export default async function PageRegiste(): Promise<JSX.Element> {
   const cookie = cookies();
   const email = cookie.get('email');
   const user = await getUser(email?.value ?? '');

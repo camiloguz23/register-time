@@ -9,7 +9,7 @@ interface PropModal {
   children: React.ReactNode;
 }
 
-export const UiModal = ({ children }: PropModal) => {
+export const UiModal = ({ children }: PropModal): JSX.Element => {
   const route = useRouter();
   const [classAnimation, setClassAnimation] = useState<string>('open');
   return (

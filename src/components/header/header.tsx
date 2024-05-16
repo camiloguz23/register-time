@@ -4,6 +4,4 @@ interface PropHeader {
   children: React.ReactNode;
 }
 
-export const Header = ({ children }: PropHeader) => {
-  return <header className={style.header}>{children}</header>;
-};
+export const Header = ({ children }: PropHeader): JSX.Element => <header className={style.header}>{children}</header>;

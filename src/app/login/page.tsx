@@ -2,7 +2,7 @@ import { Icons, UiFormLogin } from '@/components';
 import style from './login.module.css';
 import Link from 'next/link';
 
-function Page() {
+function Page(): JSX.Element {
   return (
     <div className={style.login}>
       <Link href={'/'} className={style.close}>

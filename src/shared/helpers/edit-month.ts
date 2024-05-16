@@ -15,7 +15,7 @@ export const editMonth = (minutes: number): Record<CodeMonthType, Record<string,
   '11': { 'tiempo.meses.diciembre': minutes }
 });
 
-export const editYear = (year: number, count: number) => {
+export const editYear = (year: number, count: number): Record<string, number> => {
   const field = { [`tiempo.years.${year}`]: count };
   return field;
 };

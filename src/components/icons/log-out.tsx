@@ -3,8 +3,7 @@ interface PropsIcons {
   size?: string;
 }
 
-export const LogOut = ({ className, size }: PropsIcons) => {
-  return (
+export const LogOut = ({ className, size }: PropsIcons): JSX.Element => (
     <svg xmlns='http://www.w3.org/2000/svg' width={size ?? '24px'} height={size ?? '24px'} className={className} viewBox='0 0 24 24'>
       <path
         fill='currentColor'
@@ -12,4 +11,3 @@ export const LogOut = ({ className, size }: PropsIcons) => {
       />
     </svg>
   );
-};

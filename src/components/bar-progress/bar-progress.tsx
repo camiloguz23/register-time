@@ -7,10 +7,8 @@ interface PropProgress {
   color: 'verde' | 'azul' | 'naranja';
 }
 
-export const BarProgress = ({ max, value, title, color }: PropProgress) => {
-  return (
-    <div>
-      <progress className={style[`progress-${color}`]} max={max} value={value} /> <span>{title}</span>
-    </div>
-  );
-};
+export const BarProgress = ({ max, value, title, color }: PropProgress): JSX.Element => (
+  <div>
+    <progress className={style[`progress-${color}`]} max={max} value={value} /> <span>{title}</span>
+  </div>
+);

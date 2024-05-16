@@ -54,9 +54,7 @@ export const metadata: Metadata = {
   publisher: 'Jeyson Camilo Guzman Rico'
 };
 
-export default function RootLayout({
-  children,
-}: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <html lang='es' className={montserrat.className}>
       <body>

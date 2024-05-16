@@ -2,17 +2,23 @@
 
 import { useState } from 'react';
 
-export const useLocalStorage = () => {
+interface UseLocalStorage {
+  value: string;
+  getStorage: (key: string) => void;
+  setStorage: (key: string, value: string) => void;
+}
+
+export const useLocalStorage = (): UseLocalStorage => {
   const [value, setValue] = useState<string>('');
 
-  const getStorage = (key: string) => {
+  const getStorage = (key: string): void => {
     const data = localStorage.getItem(key);
     setValue(data ?? '');
   };
 
-  const setStorage = (key: string, value: string) => {
+  const setStorage = (key: string, value: string): void => {
     localStorage.setItem(key, value);
-    getStorage(key)
+    getStorage(key);
   };
 
   return {

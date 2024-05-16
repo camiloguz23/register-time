@@ -1,11 +1,18 @@
 import { useState } from 'react';
 
-export const useBoolean = () => {
+interface UseBoolean {
+  value: boolean;
+  onFalse: () => void;
+  onToggle: () => void;
+  onTrue: () => void;
+}
+
+export const useBoolean = (): UseBoolean => {
   const [value, setValue] = useState<boolean>(false);
 
-  const onTrue = () => setValue(true);
-  const onFalse = () => setValue(false);
-  const onToggle = () => setValue(!value);
+  const onTrue = (): void => setValue(true);
+  const onFalse = (): void => setValue(false);
+  const onToggle = (): void => setValue(!value);
 
   return {
     value,

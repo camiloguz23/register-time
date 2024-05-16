@@ -1,5 +1,4 @@
-import { CodeMonthType, MonthType } from "../types";
-
+import { CodeMonthType, MonthType } from '../types';
 
 export const MONTH: Record<CodeMonthType, MonthType> = {
   '0': 'enero',

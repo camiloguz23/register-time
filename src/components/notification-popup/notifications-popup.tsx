@@ -6,7 +6,7 @@ interface Props {
   isSuccess: boolean;
 }
 
-export const notificationsPopUp = ({ message, isSuccess }: Props) => {
+export const notificationsPopUp = ({ message, isSuccess }: Props): void => {
   toast.success(<UiNotifications message={message} type={isSuccess ? 'success' : 'error'} />, {
     style: { backgroundColor: isSuccess ? 'hsla(120,50%,50%,1)' : 'hsla(0,50%,50%,1)' }
   });

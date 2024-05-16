@@ -1,15 +1,3 @@
-export interface TimeRegister {
-  nombre: string;
-  email: string;
-  tiempo: Tiempo;
-  _id: string;
-}
-
-export interface Tiempo {
-  years: Record<string, number>;
-  meses: Meses;
-}
-
 export interface Meses {
   enero: number;
   febrero: number;
@@ -23,4 +11,16 @@ export interface Meses {
   octubre: number;
   noviembre: number;
   diciembre: number;
+}
+
+export interface Tiempo {
+  years: Record<string, number>;
+  meses: Meses;
+}
+
+export interface TimeRegister {
+  nombre: string;
+  email: string;
+  tiempo: Tiempo;
+  _id: string;
 }

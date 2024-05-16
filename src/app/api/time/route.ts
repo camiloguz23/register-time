@@ -2,7 +2,12 @@ import { mongodbConnect, timeModel } from '@/database';
 import { TimeRegister } from '@/shared';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<
+  | NextResponse<TimeRegister | null>
+  | NextResponse<{
+      error: string;
+    }>
+> {
   const { searchParams } = new URL(request.url);
   const email = searchParams.get('email');
   try {
@@ -23,25 +28,11 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   await mongodbConnect();
   const data = await request.json();
 
   const timeDate = await timeModel.create(data);
 
   return NextResponse.json(timeDate);
-}
-
-export async function PUT(request: NextRequest) {
-  try {
-    await mongodbConnect();
-    const data = request.json();
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'error serve' },
-      {
-        status: 500
-      }
-    );
-  }
 }
