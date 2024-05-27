@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { BtnRegister, InfoPredications } from './components';
 import { CodeMonthType, MONTH, formatHoursMinutes } from '@/shared';
 import style from './register-page.module.css';
-import { BarProgress, BtnLogout, Header } from '@/components';
+import { BarProgress } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Register Time'
@@ -18,9 +18,6 @@ export default async function PageRegiste(): Promise<JSX.Element> {
   const year = new Date().getFullYear();
   return (
     <main className={style.registerContainer}>
-      <Header>
-        <BtnLogout />
-      </Header>
       <div className={style.container}>
         <InfoPredications month={MONTH[month]} time={formatHoursMinutes(user?.tiempo.meses[MONTH[month]] ?? 0)} />
         <section className={style['section-precursorado']}>

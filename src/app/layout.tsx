@@ -1,25 +1,19 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Roboto_Mono } from 'next/font/google';
 import { Toaster } from 'sonner';
 import './globals.css';
 
-const montserrat = Montserrat({
+const robotoMono = Roboto_Mono({
   subsets: ['latin'],
-  style: ['italic', 'normal'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--montserrat'
+  style: ['normal', 'italic'],
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  variable: '--roboto'
 });
 
 export const metadata: Metadata = {
   title: 'Register Time',
   description: 'Pagina donde se puede registrar el tiempo mensualmente o diariamente',
   manifest: '/manifest.json',
-  icons: [
-    { rel: 'icon', url: '/img/icon-192x192.png' },
-    { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/img/icon-192x192.png' },
-    { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/img/icon-192x192.png' },
-    { rel: 'apple-touch-icon', sizes: '180x180', url: '/img/icon-192x192.png' }
-  ],
   themeColor: '#3569f6',
   authors: [{ name: 'Jeyson Camilo Guzman Rico', url: 'https://www.jeysonguzman.online/' }],
   keywords:
@@ -56,7 +50,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <html lang='es' className={montserrat.className}>
+    <html lang='es' className={robotoMono.variable}>
+      <head>
+        <link rel='icon' href='/icon-192x192.png' type='image/x-icon' sizes='any' />
+      </head>
       <body>
         {children}
         <Toaster position='top-right' />

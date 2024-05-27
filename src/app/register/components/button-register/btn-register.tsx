@@ -6,7 +6,7 @@ import { CodeMonthType, editMonth, editYear } from '@/shared';
 import { differenceInMinutes } from 'date-fns';
 import { useEffect } from 'react';
 import style from './btn-register.module.css';
-import { Icons, notificationsPopUp, Spinner} from '@/components';
+import { Icons, notificationsPopUp, Spinner } from '@/components';
 
 interface PropsBtnRegister {
   id: string;
@@ -15,7 +15,7 @@ interface PropsBtnRegister {
   year: number;
 }
 
-export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister) => {
+export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister): JSX.Element => {
   const storage = useLocalStorage();
   const spinner = useBoolean();
   const month = new Date().getMonth();
@@ -24,7 +24,7 @@ export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister)
     storage.getStorage('time');
   }, []);
 
-  const onRegisterTime = async () => {
+  const onRegisterTime = async (): Promise<JSX.Element | void> => {
     if (!storage.value) {
       storage.setStorage('time', `${new Date()}`);
       return;
