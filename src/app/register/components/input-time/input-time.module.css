@@ -1,0 +1,10 @@
+.formTime {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+
+    .containerInput {
+        width: 50%;
+    }
+}

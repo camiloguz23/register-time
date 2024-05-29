@@ -5,6 +5,7 @@ import { BtnRegister, InfoPredications } from './components';
 import { CodeMonthType, MONTH, formatHoursMinutes } from '@/shared';
 import style from './register-page.module.css';
 import { BarProgress } from '@/components';
+import UiInputTime from './components/input-time/ui-input-time';
 
 export const metadata: Metadata = {
   title: 'Register Time'
@@ -41,6 +42,12 @@ export default async function PageRegiste(): Promise<JSX.Element> {
             color='verde'
           />
         </section>
+        <UiInputTime
+          id={user?._id ?? ''}
+          minutesDB={user?.tiempo.meses[MONTH[month]] ?? 0}
+          yearTime={user?.tiempo?.years[`${year}`] ?? 0}
+          year={year}
+        />
       </div>
       <BtnRegister
         id={user?._id ?? ''}
