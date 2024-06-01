@@ -6,6 +6,7 @@ import { CodeMonthType, MONTH, formatHoursMinutes } from '@/shared';
 import style from './register-page.module.css';
 import { BarProgress } from '@/components';
 import UiInputTime from './components/input-time/ui-input-time';
+import { zonedDate } from '@/shared/helpers/get-month';
 
 export const metadata: Metadata = {
   title: 'Register Time'
@@ -15,7 +16,7 @@ export default async function PageRegiste(): Promise<JSX.Element> {
   const cookie = cookies();
   const email = cookie.get('email');
   const user = await getUser(email?.value ?? '');
-  const month: CodeMonthType = new Date().getMonth() as CodeMonthType;
+  const month: CodeMonthType = zonedDate();
   const year = new Date().getFullYear();
   return (
     <main className={style.registerContainer}>

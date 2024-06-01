@@ -6,7 +6,7 @@ interface Props {
   time: FormatHoursMinutesInterfaces;
 }
 
-export const InfoPredications = ({ time, month }: Props) => {
+export function InfoPredications({ time, month }: Props): JSX.Element {
   return (
     <section className={style['info-predicaion']}>
       <h2 className={`${style.prettyText}`}>Este mes {month}</h2>
@@ -15,4 +15,4 @@ export const InfoPredications = ({ time, month }: Props) => {
       </p>
     </section>
   );
-};
+}
