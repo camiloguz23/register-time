@@ -7,6 +7,7 @@ import { differenceInMinutes } from 'date-fns';
 import { useEffect } from 'react';
 import style from './btn-register.module.css';
 import { Icons, notificationsPopUp, Spinner } from '@/components';
+import { zonedDate } from '@/shared/helpers/get-month';
 
 interface PropsBtnRegister {
   id: string;
@@ -18,7 +19,7 @@ interface PropsBtnRegister {
 export const BtnRegister = ({ id, minutesDB, year, yearTime }: PropsBtnRegister): JSX.Element => {
   const storage = useLocalStorage();
   const spinner = useBoolean();
-  const month = new Date().getMonth();
+  const month = zonedDate();
 
   useEffect(() => {
     storage.getStorage('time');

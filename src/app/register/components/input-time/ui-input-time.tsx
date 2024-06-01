@@ -7,6 +7,7 @@ import styles from './input-time.module.css';
 import { CodeMonthType, editMonth, editYear } from '@/shared';
 import { updateMonthAction } from '@/actions';
 import { useBoolean } from '@/hook';
+import { zonedDate } from '@/shared/helpers/get-month';
 
 interface PropsBtnRegister {
   id: string;
@@ -17,7 +18,7 @@ interface PropsBtnRegister {
 
 export default function UiInputTime({ id, minutesDB, yearTime, year }: PropsBtnRegister): JSX.Element {
   const { register, handleSubmit } = useForm({});
-  const month = new Date().getMonth();
+  const month = zonedDate();
   const spinner = useBoolean();
 
   const onSubmit = handleSubmit(async (data): Promise<void> => {
