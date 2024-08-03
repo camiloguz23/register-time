@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { getUser } from '../services/get-user';
 import { cookies } from 'next/headers';
 import { BtnRegister, InfoPredications } from './components';
 import { CodeMonthType, MONTH, formatHoursMinutes } from '@/shared';
@@ -7,6 +6,7 @@ import style from './register-page.module.css';
 import { BarProgress } from '@/components';
 import UiInputTime from './components/input-time/ui-input-time';
 import { zonedDate } from '@/shared/helpers/get-month';
+import { getUser } from '@/services';
 
 export const metadata: Metadata = {
   title: 'Register Time'

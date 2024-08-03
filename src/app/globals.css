@@ -5,6 +5,10 @@
   font-family: var(--roboto);
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 body {
   height: 100dvb;
 }
