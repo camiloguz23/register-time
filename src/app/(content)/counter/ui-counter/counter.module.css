@@ -12,9 +12,11 @@
 
     .contentBtn {
         display: flex;
-        width: 40%;
+        width: 50%;
         justify-content: space-around;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
 
         .btn {
             padding: 4px 18px;
