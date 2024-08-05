@@ -1,10 +1,11 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
-export function middleware(request: NextRequest): NextResponse<unknown>  {
+export function middleware(request: NextRequest): NextResponse<unknown> {
   const cookie = cookies();
   const isValid = cookie.get('email');
-  if (request.nextUrl.pathname.startsWith('/register') && !isValid?.value) {
+
+  if ((request.nextUrl.pathname.startsWith('/register') || request.nextUrl.pathname.startsWith('/counter')) && !isValid?.value) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
