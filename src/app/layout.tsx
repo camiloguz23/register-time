@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Roboto_Mono } from 'next/font/google';
 import { Toaster } from 'sonner';
 import './globals.css';
+import { ViewTransitions } from 'next-view-transitions';
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
@@ -50,14 +51,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <html lang='es' className={robotoMono.variable}>
-      <head>
-        <link rel='icon' href='/icon-192x192.png' type='image/x-icon' sizes='any' />
-      </head>
-      <body>
-        {children}
-        <Toaster position='top-right' />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang='es' className={robotoMono.variable}>
+        <head>
+          <link rel='icon' href='/icon-192x192.png' type='image/x-icon' sizes='any' />
+        </head>
+        <body>
+          {children}
+          <Toaster position='top-right' />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

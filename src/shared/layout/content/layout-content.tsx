@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './layout-content.module.css';
-import Link from 'next/link';
 import { BtnLogout, Header } from '@/components';
+import { Link } from 'next-view-transitions';
 
 interface PropsLayoutContent {
   children: React.ReactNode;
@@ -10,11 +10,6 @@ interface PropsLayoutContent {
 export function UiLayoutContent({ children }: PropsLayoutContent): JSX.Element {
   return (
     <main className={style.main}>
-      {/* <header className={style.header}>
-        <Link href={'/register'}>Registro</Link>
-        <Link href={'/counter'}>contador</Link>
-        <BtnLogout />
-      </header> */}
       <Header className={style.header}>
         <nav className={style.contentLink}>
           <Link href={'/register'}>Registro</Link>
