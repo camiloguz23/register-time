@@ -14,6 +14,7 @@ export function UiLayoutContent({ children }: PropsLayoutContent): JSX.Element {
         <nav className={style.contentLink}>
           <Link href={'/register'}>Registro</Link>
           <Link href={'/counter'}>contador</Link>
+          <Link href={'/history'}>Historial</Link>
         </nav>
         <BtnLogout />
       </Header>
