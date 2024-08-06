@@ -1,5 +1,5 @@
 import { getUser } from '@/services';
-import { CodeMonthType, MONTH, zonedDate } from '@/shared';
+import { CodeMonthType, formatHoursMinutes, MONTH, zonedDate } from '@/shared';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import React from 'react';
@@ -19,7 +19,7 @@ export default async function HistoryPage(): Promise<JSX.Element> {
   return (
     <div style={{ paddingLeft: '20px' }}>
       <p>
-        <b>Mes:</b> {MONTH[setMoth()]} {user?.tiempo.meses[MONTH[month]] ?? 0}
+        <b>Mes:</b> {MONTH[setMoth()]} {formatHoursMinutes(user?.tiempo.meses[MONTH[setMoth()]] ?? 0).hours}
       </p>
     </div>
   );
