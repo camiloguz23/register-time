@@ -1,0 +1,37 @@
+.tab {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 4px 12px ;
+  font-size: 20px;
+  border-radius: 8px;
+
+  &.active {
+    background-color: #5c67db81;
+  }
+
+  &:hover {
+    background-color: #5c67db81;
+    animation-name: UpDown;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+}
+.contentTabs {
+  display: flex;
+  gap: 20px;
+}
+
+@keyframes UpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

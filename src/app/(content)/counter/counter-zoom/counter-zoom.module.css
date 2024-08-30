@@ -1,0 +1,17 @@
+.contentDiv {
+  display: flex;
+  flex-direction: column;
+  width: clamp(300px, 700px, 90%);
+  gap: 30px;
+  margin-top: 30px;
+
+  .inputNumber {
+    font-size: 22px;
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+
+  .assist {
+    font-size: 24px;
+  }
+}

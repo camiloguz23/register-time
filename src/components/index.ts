@@ -8,3 +8,4 @@ export * from './header/header';
 export * from './btn-logout/btn-logout';
 export * from './bar-progress/bar-progress';
 export * from './notification-popup/notifications-popup';
+export * from './tabs';
