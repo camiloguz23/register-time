@@ -14,7 +14,7 @@ export function middleware(request: NextRequest): NextResponse<unknown> {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  if (request.nextUrl.pathname.endsWith('/') && isValid?.value) {
+  if ((request.nextUrl.pathname.endsWith('/') || request.nextUrl.pathname.startsWith('/login')) && isValid?.value) {
     return NextResponse.redirect(new URL('/register', request.url));
   }
   return NextResponse.next();
